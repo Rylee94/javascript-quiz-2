@@ -13,6 +13,7 @@ function startGame() {
   timeLeft = parseInt(timerEl.textContent);
   startTimer();
   updateQuestion();
+  startButton.style.display = "none"; // Hide the start button
 }
 
 function startTimer() {
@@ -66,7 +67,10 @@ function checkAnswer() {
 
   resultEl.textContent = resultText; // Display the result
 
-  nextQuestion();
+  // Use setTimeout to delay the nextQuestion() call by a short time
+  setTimeout(function () {
+    nextQuestion();
+  }, 500); // Adjust the delay time as needed
 }
 
 function nextQuestion() {
@@ -76,15 +80,30 @@ function nextQuestion() {
     selectedChoice = null; // Reset selected choice for the next question
     resultEl.textContent = ""; // Clear the result
     updateQuestion();
-  }
-
-  if (questionIndex == questions.length) {
+  } else if (questionIndex === questions.length) {
     questionEl.textContent = "All done!";
     choicesEl.innerHTML = "";
+    clearInterval(timeInterval); // Pause the timer
+    timerEl.textContent = "Seconds left: " + timeLeft; // Display remaining seconds
     resultEl.textContent = ""; // Clear the result
-    clearInterval(timeInterval);
-    // Display the remaining seconds
-    timerEl.textContent = "Seconds left: " + timeLeft;
+
+    // Create a text input element
+    var nameInput = document.createElement("input");
+    nameInput.setAttribute("type", "text");
+    nameInput.setAttribute("placeholder", "Enter your initials");
+    choicesEl.appendChild(nameInput);
+
+    // Create a submit button
+    var submitButton = document.createElement("button");
+    submitButton.textContent = "Submit";
+    submitButton.addEventListener("click", function () {
+      var playerName = nameInput.value;
+      // Process the submitted name as needed
+      console.log("Player Name:", playerName);
+      // Perform any other actions when the form is submitted
+    });
+    choicesEl.appendChild(submitButton);
+
     // Perform any action when all questions are answered
   }
 }

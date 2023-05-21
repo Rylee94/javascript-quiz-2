@@ -1,7 +1,7 @@
 var questions = [
   {
     question: "Inside which HTML element do we put the JavaScript?",
-    choices: ["<script>", "<javascript>", "<scripting>", "js"],
+    choices: ["<javascript>", "<scripting>", "<script>", "js"],
     answer: "<script>",
   },
   {
@@ -12,7 +12,7 @@ var questions = [
   {
     question:
       "Which of the following is used for assigning a value to a variable?",
-    choices: ["*", "=", "-", "x"],
+    choices: ["-", "=", "*", "x"],
     answer: "=",
   },
 ];

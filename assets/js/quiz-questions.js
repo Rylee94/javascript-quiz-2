@@ -16,9 +16,8 @@ var questions = [
   },
 ];
 
-questions[currentQuestion].question;
-questions[currentQuestion].choices;
-questions[currentQuestion].answer;
-
+//questions[currentQuestion].question;
+//questions[currentQuestion].choices;
+//questions[currentQuestion].answer;
 
 //figure out logic for quiz and displaying questions and the logic for timer

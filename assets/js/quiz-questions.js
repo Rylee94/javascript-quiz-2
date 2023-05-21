@@ -1,18 +1,19 @@
 var questions = [
   {
-    question: "Which is NOT a JS data type.",
+    question: "Inside which HTML element do we put the JavaScript?",
+    choices: ["<script>", "<javascript>", "<scripting>", "js"],
+    answer: "<script>",
+  },
+  {
+    question: "Commonly used data types do NOT include",
     choices: ["pickles", "booleans", "strings", "integers"],
     answer: "pickles",
   },
   {
-    question: "Which is NOT a JS data type.",
-    choices: ["pickles", "booleans", "strings", "integers"],
-    answer: "pickles",
-  },
-  {
-    question: "Which is NOT a JS data type.",
-    choices: ["pickles", "booleans", "strings", "integers"],
-    answer: "pickles",
+    question:
+      "Which of the following is used for assigning a value to a variable?",
+    choices: ["*", "=", "-", "x"],
+    answer: "=",
   },
 ];
 

@@ -4,32 +4,40 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home Page - Play the JS Quiz Game</title>
+    <title>JavaScript Quiz</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
-    <h1>Tes your Programming Knowledge - JS Quiz</h1>
-
     <section class="highscores">
       <a href="highscores.html"> View High Scores </a>
     </section>
 
-    <section id="timer">Seconds Left: <span id="seconds">75</span></section>
+    <section class="timeLeft">Time Left: <span id="timer">75</span></section>
+    <div class="container">
+      <div id="quiz" class="centered">
+        <h1>JavaScript Quiz</h1>
+        <p id="question">These are the instructions for the quiz.</p>
 
-    <main id="container">
-      <!--Phase 1 show landing page with instructions and start. to delete this in javascript use textcontent empty string-->
-      <section id="welcome-screen"></section>
-      <h2>Coding Quiz Game</h2>
-      <p id="question">
-        instructions are to follow the rules. Write instructions later
-      </p>
-      <button id="start-btn">Start</button>
+        <p id="choices"></p>
+        <button id="guess0" class="btn--default">Select Answer</button>
 
-      <!--Phase 2 show each question with possible responses as buttons-->
+        <p id="choice1"></p>
+        <button id="guess1" class="btn--default">Select Answer</button>
 
-      <!--Phase 3 end game screen, show "quiz complete", show final score(seconds remaining), input box for initials and to submit score to high scores-->
-    </main>
+        <p id="choice2"></p>
+        <button id="guess2" class="btn--default">Select Answer</button>
 
-    <script src="assets/js/game-logic.js"></script>
+        <p id="choice3"></p>
+        <button id="guess3" class="btn--default">Select Answer</button>
+        <br />
+        <button id="startButton">Start</button>
+        <footer>
+          <p id="result">'wrong' or 'right' displayed here</p>
+        </footer>
+      </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
     <script src="assets/js/quiz-questions.js"></script>
   </body>
 </html>

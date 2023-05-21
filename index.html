@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page - Play the JS Quiz Game</title>
+  </head>
+  <body>
+    <h1>Tes your Programming Knowledge - JS Quiz</h1>
+
+    <section class="highscores">
+      <a href="highscores.html"> View High Scores </a>
+    </section>
+
+    <section class="timer">Seconds Left: <span id="seconds">75</span></section>
+
+    <main id="quiz-container">
+      <!--Phase 1 show landing page with instructions and start. to delete this in javascript use textcontent empty string-->
+      <section id="welcome-screen"></section>
+      <h2>Coding Quiz Game</h2>
+      <p>instructions are to follow the rules. Write instructions later</p>
+      <button id="start">Start</button>
+
+      <!--Phase 2 show each question with possible responses as buttons-->
+
+      <!--Phase 3 end game screen, show "quiz complete", show final score(seconds remaining), input box for initials and to submit score to high scores-->
+    </main>
+
+    <script src="assets/js/game-logic.js"></script>
+    <script src="assets/js/quiz-questions.js"></script>
+  </body>
+</html>

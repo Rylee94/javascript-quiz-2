@@ -5,22 +5,21 @@ var timerEl = document.getElementById("timer");
 var questionIndex = 0;
 var questionEl = document.getElementById("question");
 var choicesEl = document.getElementById("choices");
-var resultEl = document.getElementById("result"); // Element to display the result
-var selectedChoice = null; // Variable to store the selected choice
+var resultEl = document.getElementById("result");
+var selectedChoice = null;
 
 function startGame() {
   console.log("started");
   timeLeft = parseInt(timerEl.textContent);
   startTimer();
   updateQuestion();
-  startButton.style.display = "none"; // Hide the start button
+  startButton.style.display = "none";
 }
 
 function startTimer() {
   countdown();
 }
 
-// Function to start the timer
 function countdown() {
   timeInterval = setInterval(function () {
     if (timeLeft > 1) {
@@ -52,58 +51,55 @@ function updateQuestion() {
 
 function checkAnswer() {
   var currentQuestion = questions[questionIndex];
-  var resultText; // Variable to store the result text
+  var resultText;
 
   if (selectedChoice === currentQuestion.answer) {
     resultText = "Correct answer!";
   } else {
     resultText = "Wrong answer!";
-    timeLeft -= 15; // Decrease the timer by 15 seconds
+    timeLeft -= 15;
     if (timeLeft < 0) {
-      timeLeft = 0; // Ensure the timer doesn't go below zero
+      timeLeft = 0;
     }
-    timerEl.textContent = timeLeft; // Update the timer display
+    timerEl.textContent = timeLeft;
   }
 
-  resultEl.textContent = resultText; // Display the result
+  resultEl.textContent = resultText;
 
-  // Use setTimeout to delay the nextQuestion() call by a short time
   setTimeout(function () {
+    resultEl.textContent = "";
     nextQuestion();
-  }, 500); // Adjust the delay time as needed
+  }, 800);
 }
 
 function nextQuestion() {
   questionIndex++;
 
   if (questionIndex < questions.length) {
-    selectedChoice = null; // Reset selected choice for the next question
-    resultEl.textContent = ""; // Clear the result
+    selectedChoice = null;
+    resultEl.textContent = "";
     updateQuestion();
   } else if (questionIndex === questions.length) {
     questionEl.textContent = "All done!";
     choicesEl.innerHTML = "";
-    clearInterval(timeInterval); // Pause the timer
-    timerEl.textContent = "Seconds left: " + timeLeft; // Display remaining seconds
-    resultEl.textContent = ""; // Clear the result
+    clearInterval(timeInterval);
+    resultEl.textContent = "Your score is: " + timeLeft;
 
-    // Create a text input element
     var nameInput = document.createElement("input");
     nameInput.setAttribute("type", "text");
     nameInput.setAttribute("placeholder", "Enter your initials");
     choicesEl.appendChild(nameInput);
 
-    // Create a submit button
     var submitButton = document.createElement("button");
     submitButton.textContent = "Submit";
     submitButton.addEventListener("click", function () {
       var playerName = nameInput.value;
-      // Process the submitted name as needed
       console.log("Player Name:", playerName);
-      // Perform any other actions when the form is submitted
+      localStorage.setItem("playerInitials", playerName);
+      localStorage.setItem("playerScore", timeLeft);
+      // Redirect to high scores page
+      window.location.href = "highscores.html"; // Replace with the actual URL of your high scores page
     });
     choicesEl.appendChild(submitButton);
-
-    // Perform any action when all questions are answered
   }
 }

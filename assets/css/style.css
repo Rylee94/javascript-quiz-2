@@ -88,3 +88,10 @@ footer p {
 .btn--default {
     display: none;
 }
+
+.timeLeft {
+    color:aliceblue;
+  }
+  #timer {
+    color: aliceblue;
+  }

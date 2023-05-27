@@ -144,6 +144,12 @@ function saveHighScore(playerName, playerScore) {
 // Function to update the high score list
 function updateHighScoreList() {
   var highscores = getHighScores();
+
+  // Sort the scores in descending order
+  highscores.sort(function (a, b) {
+    return b.score - a.score;
+  });
+
   var highscoreList = document.getElementById("highscoreList");
   highscoreList.innerHTML = ""; // Clear the previous list
 

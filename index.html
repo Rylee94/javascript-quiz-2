@@ -5,32 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JavaScript Quiz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
-    <section class="highscores">
-      <a href="highscores.html"> View High Scores </a>
-    </section>
+    <header>
+      <section class="highscores">
+        <a href="highscores.html"> View High Scores </a>
+      </section>
 
-    <section class="timeLeft">Time Left: <span id="timer">75</span></section>
+      <section class="timeLeft">Time Left: <span id="timer">75</span></section>
+    </header>
+
     <div class="container">
       <div id="quiz" class="centered">
-        <h1>JavaScript Quiz</h1>
-        <p id="question">These are the instructions for the quiz.</p>
+        <h1>Coding Quiz Challenge</h1>
+        <p id="question">
+          Try to answer the following code-related questions within the time
+          limit. Keep in mind that incorrect answers will penalize your
+          scoretime by ten seconds!
+        </p>
 
-        <p id="choices"></p>
-        <button id="guess0" class="btn--default">Select Answer</button>
+        <div id="choices">
+          <div id="choice0"></div>
+          <button id="guess0" class="btn--default">Select Answer</button>
+        </div>
 
-        <p id="choice1"></p>
-        <button id="guess1" class="btn--default">Select Answer</button>
+        <div id="choices">
+          <div id="choice1"></div>
+          <button id="guess1" class="btn--default">Select Answer</button>
+        </div>
 
-        <p id="choice2"></p>
-        <button id="guess2" class="btn--default">Select Answer</button>
+        <div id="choices">
+          <div id="choice2"></div>
+          <button id="guess2" class="btn--default">Select Answer</button>
+        </div>
 
-        <p id="choice3"></p>
-        <button id="guess3" class="btn--default">Select Answer</button>
+        <div id="choices">
+          <div id="choice3"></div>
+          <button id="guess3" class="btn--default">Select Answer</button>
+        </div>
         <br />
-        <button id="startButton">Start</button>
+        <button id="startButton">Start Quiz</button>
         <footer>
           <p id="result"></p>
         </footer>

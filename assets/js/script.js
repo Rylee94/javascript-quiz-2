@@ -21,13 +21,34 @@ function startTimer() {
   countdown();
 }
 
+//timer function
 function countdown() {
   timeInterval = setInterval(function () {
-    if (timeLeft > 1) {
+    if (timeLeft > 0) {
       timeLeft--;
       timerEl.textContent = timeLeft;
     } else {
       clearInterval(timeInterval);
+      questionEl.textContent = "All done!";
+      choicesEl.innerHTML = "";
+      resultEl.textContent = "Your score is: " + timeLeft;
+
+      var nameInput = document.createElement("input");
+      nameInput.setAttribute("type", "text");
+      nameInput.setAttribute("placeholder", "Enter your initials");
+      choicesEl.appendChild(nameInput);
+
+      var submitButton = document.createElement("button");
+      submitButton.textContent = "Submit";
+      submitButton.addEventListener("click", function () {
+        var playerName = nameInput.value;
+        console.log("Player Name:", playerName);
+        var playerScore = timeLeft;
+        saveHighScore(playerName, playerScore);
+        // Redirect to high scores page
+        window.location.href = "highscores.html"; // Replace with the actual URL of your high scores page
+      });
+      choicesEl.appendChild(submitButton);
     }
   }, 1000);
 }
@@ -120,17 +141,28 @@ function saveHighScore(playerName, playerScore) {
   localStorage.setItem("highscores", JSON.stringify(highscores));
 }
 
-function renderHighScores() {
+// Function to update the high score list
+function updateHighScoreList() {
   var highscores = getHighScores();
-  highscores.sort(function (a, b) {
-    return b.score - a.score;
-  });
-
-  highscoreList.innerHTML = "";
+  var highscoreList = document.getElementById("highscoreList");
+  highscoreList.innerHTML = ""; // Clear the previous list
 
   highscores.forEach(function (score) {
-    var scoreItem = document.createElement("li");
-    scoreItem.textContent = score.name + " - " + score.score;
-    highscoreList.appendChild(scoreItem);
+    var listItem = document.createElement("li");
+    listItem.textContent = score.name + ": " + score.score;
+    highscoreList.appendChild(listItem);
   });
+}
+
+// Call the function to update the high score list when the page loads
+updateHighScoreList();
+
+// Add an event listener to the clearButton
+var clearButton = document.getElementById("clearButton");
+clearButton.addEventListener("click", clearHighScores);
+
+// Function to clear the high scores
+function clearHighScores() {
+  localStorage.removeItem("highscores");
+  updateHighScoreList(); // Update the high score list after clearing
 }

@@ -28,8 +28,8 @@ body {
   box-shadow: 0px 0px 16px 2px rgba(0, 0, 0, 0.62);
 }
 
-h1 {
-  color: ##353739;
+h1, {
+  color: #000000;
   font-weight: 600;
   font-size: 2em;
   line-height: 1.1;
@@ -37,13 +37,7 @@ h1 {
   
 }
 
-h2 {
-  color: #999da1;
-  letter-spacing: 1px;
-  font-weight: 300;
-  font-size: 1.5em;
-  font-family: 'Helvetica Neue', Helvetica, sans-serif;
-}
+
 
 p {
   margin: 0.8em 0;
@@ -135,7 +129,7 @@ text-decoration: underline;
 }
 
 body #highscore {
-  color: #353739;
+  color: #000000;
   font-weight: 600;
   font-size: 2em;
   line-height: 1.1;
@@ -144,7 +138,32 @@ body #highscore {
 }
 
 #clearButton {
-  background-color: #DDC5EB;
-  color: black;
+  display: flex;
+  align-items: center;  
+  margin: auto;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  border: 0;
+  width: 8rem;
+  height: 3rem;
+  border-radius: 0.5em;
+  color: rgb(0, 0, 0);
+  background-color: #ffffff;
+  text-transform: uppercase;
+  font-size: 0.875em;
+  font-weight: 600;
+  transition: opacity 0.3s;
+  cursor: pointer;
 }
 
+#clearButton:hover {
+  background-color: #DDC5EB;
+}
+body li {
+  display: flex;
+  justify-content: center;
+  color: aliceblue;
+font-size: 20px;
+list-style: none;
+margin-right: 35px;
+}

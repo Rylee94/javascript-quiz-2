@@ -6,8 +6,8 @@ var questions = [
   },
   {
     question: "Commonly used data types do NOT include",
-    choices: ["pickles", "booleans", "strings", "integers"],
-    answer: "pickles",
+    choices: ["falsy", "booleans", "strings", "integers"],
+    answer: "v",
   },
   {
     question:
@@ -16,9 +16,3 @@ var questions = [
     answer: "=",
   },
 ];
-
-//questions[currentQuestion].question;
-//questions[currentQuestion].choices;
-//questions[currentQuestion].answer;
-
-//figure out logic for quiz and displaying questions and the logic for timer

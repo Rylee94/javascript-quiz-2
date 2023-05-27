@@ -7,6 +7,7 @@ var questionEl = document.getElementById("question");
 var choicesEl = document.getElementById("choices");
 var resultEl = document.getElementById("result");
 var selectedChoice = null;
+var highscoreList = document.getElementById("highscoreList");
 
 function startGame() {
   console.log("started");
@@ -95,11 +96,41 @@ function nextQuestion() {
     submitButton.addEventListener("click", function () {
       var playerName = nameInput.value;
       console.log("Player Name:", playerName);
-      localStorage.setItem("playerInitials", playerName);
-      localStorage.setItem("playerScore", timeLeft);
+      var playerScore = timeLeft;
+      saveHighScore(playerName, playerScore);
       // Redirect to high scores page
       window.location.href = "highscores.html"; // Replace with the actual URL of your high scores page
     });
     choicesEl.appendChild(submitButton);
   }
+}
+
+function getHighScores() {
+  var highscores = localStorage.getItem("highscores");
+  if (highscores) {
+    return JSON.parse(highscores);
+  } else {
+    return [];
+  }
+}
+
+function saveHighScore(playerName, playerScore) {
+  var highscores = getHighScores();
+  highscores.push({ name: playerName, score: playerScore });
+  localStorage.setItem("highscores", JSON.stringify(highscores));
+}
+
+function renderHighScores() {
+  var highscores = getHighScores();
+  highscores.sort(function (a, b) {
+    return b.score - a.score;
+  });
+
+  highscoreList.innerHTML = "";
+
+  highscores.forEach(function (score) {
+    var scoreItem = document.createElement("li");
+    scoreItem.textContent = score.name + " - " + score.score;
+    highscoreList.appendChild(scoreItem);
+  });
 }

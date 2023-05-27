@@ -23,6 +23,10 @@
     <script>
       // Call the function to update the high score list when the page loads
       updateHighScoreList();
+
+      // Add an event listener to the clearButton
+      var clearButton = document.getElementById("clearButton");
+      clearButton.addEventListener("click", clearHighScores);
     </script>
   </body>
 </html>
